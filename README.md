@@ -1,4 +1,4 @@
-# Data Visualizer
+# Data Scope
 
 A Python 3 Flask application that generates simple statistics and a visual summary of your CSV/Excel dataset to highlight underlying issues in your data, especially spelling errors and missing values. 
 
