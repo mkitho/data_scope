@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div>
+    <a href="{{ url_for('upload') }}"><<< Return to Home (start over)</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<hr>
+<h2>Your report for '<i>{{filename}}</i>'</h2>
+
+<table class="styled-table">
+    <tr>
+        <th>Column</th>
+        <th># nulls</th>
+        <th># of unique values</th>
+        <th>Distribution of values</th>
+    </tr>
+    {% for column_stat in column_stats %}
+    <tr>
+        <td>{{ column_stat.col_name }}</td>
+        <td>
+            {% if column_stat.n_nulls is gt 0 %}
+            <span style="color: red">{{ column_stat.n_nulls }}</span>
+            {% else %}
+            {{ column_stat.n_nulls }}
+            {% endif %}
+        </td>
+        <td>{{ column_stat.n_uniques }}</td>
+        <td><img alt="" src="data:image/png;base64,{{ column_stat.b64_graph }}"></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

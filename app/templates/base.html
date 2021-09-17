@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Data visualizer</title>
+</head>
+
+
+<style media="screen">
+    body {
+        margin: 5% 20%;
+        /* font-family: 'Consolas'; */
+        /* background-color:rgb(244, 254, 255); */
+    }
+
+    .styled-table {
+        border-collapse: collapse;
+        /* margin: 25px 0; */
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+        border: 1px solid rgb(179, 178, 178);
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+        text-align: center;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    /* .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+    }  */
+
+    /* .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    } */
+</style>
+
+<body>
+    {% block header %}{% endblock %}
+    <hr>
+    <h1>Data visualizer</h1>
+
+    <p>Issues in your data, especially spelling errors and missing values, can easily be obscured among thousands of rows. </p>
+    <p>This application helps you to detect the mentioned issues by providing you a visual summary of the dataset and some simple statistics. Spelling errors and unexpected values will then show up as outliers on these ditribution plots, thereby informing your data cleanup and transformation procedures. After each cleanup, run this again to check the data. </p>
+    <p>This tool is meant for internal use only. For a more dedicated tool, consider picking up <a href="https://openrefine.org/">OpenRefine.</a></p>
+
+    {% block content %} {% endblock %}
+
+</body>
+
+</html>

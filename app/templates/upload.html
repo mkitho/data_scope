@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div><a href="{{ url_for('upload') }}">Home</a> </div>
+{% endblock %}
+
+{% block content %}
+
+<!-- 
+  <form method="POST" action="/" enctype="multipart/form-data">
+    <p><input type="file" name="file"></p>
+    <p><input type="submit" value="Submit"></p>
+  </form> 
+-->
+  {% if form %}
+  <form action="/" method="post" enctype="multipart/form-data">
+    <!-- This hidden_tag is very important! -->
+    {{ form.hidden_tag() }}
+    <p>{{ form.file(size=32) }} {% if form.file.errors %}<span style="color:red" >{{form.file.errors[0]}}</span>{% endif %} </p> 
+    <p>{{ form.submit() }}</p>
+  </form>
+  {% endif %}
+
+  <p>Note: only supports <i>.csv, .xls and .xlsx</i>. For Excel files, please take note of the limitations below:</p>
+  <ul>
+    <li>Report is only generated for the first worksheet.</li>
+    <li>Column names are assumed to be located in the first row. Multi-row column names are not supported.</li>
+    <li>This application assumes input of unmerged rows and columns. For merged cells, the cell value is only shown in the top-most or left-most cell, while considering remaining component cells as nulls.</li>
+  </ul>
+
+  {% if message %}
+      <h4 style="text-align: center;">Error processing file. Try again.</h4>
+  {% endif %}
+
+{% endblock %}
