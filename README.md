@@ -1,25 +1,26 @@
 # Data Visualizer
 
-A Flask application that generates simple statistics and a visual summary of your CSV/Excel dataset to highlight underlying issues in your data, especially spelling errors and missing values. 
+A Python 3 Flask application that generates simple statistics and a visual summary of your CSV/Excel dataset to highlight underlying issues in your data, especially spelling errors and missing values. 
 
-## How to use
+## Getting started
 
-1. Create a virtual environment with `virtualenv` and activate it. 
+1. Clone this repository
+2. (Optional) Create a `virtualenv` virtual environment with and activate it. 
 
-2. Install the dependencies with
+3. Install the dependencies with
 
 ```{sh}
-$ pip install -r requirement.txt
+pip install -r requirement.txt
 ```
 
-3. Start flask
+4. Start flask
 
 ```
-$ flask run
+flask run
 ```
 
-4. Upload the csv file (a modified mtcars dataset) in `sample-data/` to generate sample report shown in the screenshot below.
+5. Upload the csv file (a modified mtcars dataset) from `sample-data/` to generate sample report shown in the screenshot below.
 
 ## Screenshot
 
-![](./demo-screenshot.png)
+![](./screenshots/demo-screenshot.png)
